@@ -1,0 +1,206 @@
+@import './colors';
+
+@import './media-quiries';
+
+%align-center{
+    align-items: center;
+    display: flex;
+}
+
+.navbar{
+    background-color: $color-light;
+    color: $color-lime;
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    padding: 0.5rem calc((100vw - 1200px) /2);
+    z-index: 10;
+    position: relative;
+
+    &-logo{
+        color: $color-dark;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 2rem;
+        margin-left: 24px;
+        font-weight: 900;
+        @extend %align-center;
+    }
+
+    &-bars{
+        opacity: 0;
+
+        @include tablet {
+            color:$color-dark;
+            opacity: 1;
+            position: absolute;
+            top: 22px;
+            right: 20px;
+            font-size: 2rem;
+        }
+    }
+
+    &-menu{
+        @extend %align-center;
+        list-style: none;
+        text-align: center;
+        margin-right: 24px;
+
+        @include tablet{
+            display: none;
+        }
+
+        &-links{
+            color: $color-dark;
+            @extend %align-center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 0 1rem;
+
+
+            &:hover{
+                color: $color-lime;
+                transition: all .3s ease;
+            }
+
+        }
+        
+        #button{
+
+            padding: 12px 24px;
+            background-color: $color-lime;
+            color: $color-light;
+            border-radius: 10px;
+
+            &:hover{
+                background-color: $color-orangered;
+            }
+        }
+
+        
+    }
+
+
+}
+
+.start{
+    background-color: $color-light;
+
+    &-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-items: center;
+        margin: 0 auto;
+        height: 90vh;
+        z-index: 1;
+        width: 100%;
+        max-width: 1200px;
+        padding-right: 24px;
+        padding-left: 24px;
+
+
+        @include tablet{
+            grid-template-columns: 1fr;
+            height: 100%;
+
+        }
+
+        &-left{
+            width: 100%;
+            line-height: 1.2;
+
+            @include tablet {
+                padding: 5rem 0;
+            }
+            @include mobile{
+                line-height: 1.5;
+            }
+
+            h1{
+                font-size: 4rem;
+                color: $color-lime;
+
+                @include mobile {
+                    font-size: 1.5rem;
+                }
+            }
+            
+            h2{
+                font-size: 4rem;
+                color: $color-dark;
+
+                @include mobile {
+                    font-size: 1.5rem;
+                }
+            }
+
+            
+            p{
+                font-size: 2rem;
+                font-weight: 700;
+                color: $color-dark;
+                margin-top: 1rem;
+
+                @include mobile {
+                    font-size: 1.5rem;
+                }
+            }
+
+            .start-btn{
+                            
+                padding: 12px 35px;
+                background-color: $color-lime;
+                color: $color-light;
+                border-radius: 4px;
+                border: none;
+                position: relative;
+                cursor: pointer;
+                transition: all .3s ease;
+                margin-top: 1.5rem;
+
+                a{
+                    text-decoration: none;
+                    color: $color-light;
+                    font-size: 1rem;
+                    z-index: 2;
+                    position: relative;
+                }
+
+                
+            }
+            
+            .start-btn:after{
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 100%;
+                background-color: $color-orangered;
+                transition: all .3s;
+                border-radius: 4px;
+
+            }
+            .start-btn:hover:after{
+                width: 100%;
+            }
+
+
+
+               
+            
+        }
+
+        &-right{
+            text-align: center;
+
+            
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+    }
+}
